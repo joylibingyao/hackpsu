@@ -1,0 +1,43 @@
+<style type="text/css">
+	body{
+		background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
+		rgba(0,0,0,0.50) url('../img/raw-food.jpg') no-repeat center;
+		background-size: cover;
+		/*background-image: url("../img/bk.jpg");*/
+		/*opacity: 0.8;*/
+	}
+	#selectS{
+		display: block;
+	}
+	
+</style>
+<div ng-controller="ProfileController" class="container">
+
+	<h3 class="center" id="regText">Register</h3>
+
+	<div class='row white-text'>
+
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input class="white-text" placeholder="username" id='uname' type="text" ng-model="new_friend.username">
+		</div>
+
+		<div class="input-field col s6">
+			<i class="material-icons prefix">email</i>
+			<input class="white-text validate" placeholder="email" id='unemail' type="email" ng-model="new_friend.account">
+		</div>
+		<div class="input-field col s6">
+			<i class="material-icons prefix">lock</i>
+			<input class="white-text" placeholder="password" id='upass1' type="password" ng-model="new_friend.password">
+		</div>
+		<div class="input-field col s6">
+			<i class="material-icons prefix">lock</i>
+			<input class="white-text" placeholder="confirm password" id='upass2' type="password" ng-model="new_friend.password2">
+		</div>
+		<div class="input-field col s6">
+			<button onclick="Materialize.toast('Welcome New Friend', 4000)" ng-click="register()" class="btn waves-effect waves-light green" type="submit" name="action">Register
+				<i class="material-icons left">send</i>
+			</button>
+		</div>
+	</div>
+</div>		

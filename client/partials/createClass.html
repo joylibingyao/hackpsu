@@ -1,0 +1,29 @@
+<style type="text/css">
+	body{
+		background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
+		rgba(0,0,0,0.50) url('../img/raw-food.jpg') no-repeat center;
+		background-size: cover;
+		/*background-image: url("../img/bk.jpg");*/
+		/*opacity: 0.8;*/
+	}
+	#selectS{
+		display: block;
+	}
+	
+</style>
+<div id="create_class" ng-controller='ProfileController'>
+	<h3 class="center" id="regText">Create Class</h3>
+
+	<div class='row white-text'>
+
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input class="white-text" placeholder="class name" id='uname' type="text" ng-model="nclass.cname">
+		</div>
+		<div class="input-field col s6">
+			<button onclick="Materialize.toast('New Class Created, Go Post some link', 4000)" ng-click="create_class()" class="btn waves-effect waves-light green" type="submit" name="action">GO
+				<i class="material-icons left">send</i>
+			</button>
+		</div>
+	</div>
+</div>

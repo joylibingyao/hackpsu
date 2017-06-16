@@ -1,0 +1,48 @@
+<style type="text/css">
+	body{
+		background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
+		rgba(0,0,0,0.50) url('../img/raw-food.jpg') no-repeat center;
+		background-size: cover;
+		/*background-image: url("../img/bk.jpg");*/
+		/*opacity: 0.8;*/
+	}
+	#selectS{
+		display: block;
+	}
+	
+</style>
+<div id="classPage" ng-controller='ProfileController' class="container white-text">
+	<h1 ng-bind='currentClass.cname' class="center"></h1>
+	<div id="add_rescourse">
+		<h4>Add Rescourses</h4>
+		<div class="input-field col s6">
+			<input class="white-text" placeholder="link" id='uname' type="text" ng-model="link.url">
+		</div>
+		<div class="input-field col s6">
+			<input class="white-text validate" placeholder="message" id='unemail' type="text" ng-model="link.message">
+		</div>
+		<div class="input-field col s6">
+			<button ng-click="upload_link()" class="btn waves-effect waves-light green" type="submit" name="action">Upload
+				<i class="material-icons left">send</i>
+			</button>
+		</div>
+	</div>
+	<div id="show_rescourses">
+		<table>
+			<thead>
+				<tr>
+					<td>url</td>
+					<td>message</td>
+					<td>author</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="white-text" ng-repeat='link in currentClass.links'>
+					<td ng-bind='link.url'></td>
+					<td ng-bind='link.message'></td>
+					<td ng-bind='link.user_name'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
