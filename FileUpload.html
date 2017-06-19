@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Firebase Web</title>
+		<style media="screen">
+			body {
+				display: flex;
+				min-height: 100vh;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			#uploader {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 50%;
+				margin-bottom: 10px;
+			}
+		</style>
+    </head>
+    <body>
+
+    <progress value="0" max="100" id="uploader">0%</progress>
+    <input type="file" value="upload" id="fileButton" />
+
+	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+	<script>
+  		// Initialize Firebase(temp)
+  		var config = {
+    	apiKey: "AIzaSyA-k_SKxc8OSmvvRIXEhngY9KtIQWyjXeI",
+    	authDomain: "temp-e844a.firebaseapp.com",
+    	databaseURL: "https://temp-e844a.firebaseio.com",
+    	projectId: "temp-e844a",
+    	storageBucket: "temp-e844a.appspot.com",
+    	messagingSenderId: "212714763623"
+  		};
+  		firebase.initializeApp(config);
+
+  		// Get elements
+  		var uploader = document.getElementById('uploader');
+  		var fileButton = document.getElementById('fileButton');
+  		var downloader = document.getElementById('downloader');
+
+  		// Listen for file selection
+  		fileButton.addEventListener('change', function(e){
+			var file = e.target.files[0];
+			// create a storage ref
+			var storageRef = firebase.storage().ref('files/' + file.name);
+			// Upload file
+			var task = storageRef.put(file);
+			// Update progress bar
+			task.on('state_changed', 
+				function progress(snapshot) {
+					var percentage = (snapshot.bytesTransferred / snapshot.totalBytes)*100;
+					uploader.value = percentage;
+				},
+				function error(err){
+				},
+			);
+		});
+	</script>
+	</body>
+</html>
