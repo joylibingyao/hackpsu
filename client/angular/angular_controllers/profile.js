@@ -20,15 +20,21 @@ appointments.controller('ProfileController', function($rootScope,$rootScope,$sco
 	}
 	$scope.login = function () {
 		var userinfo =$scope.old_friend;
-		ProfileFactory.get_user_by_name(userinfo.username,function(data){
-			if (data && data.password == userinfo.password) {
+		ProfileFactory.login(userinfo,function(data){
+			if (data) {
 				$rootScope.currentUser = data;
 				$location.path('/home');
-			}else{
-				$scope.loginM = "Invalid uername or password";
 			}
-			$scope.login_databack = data;
 		});
+		// ProfileFactory.get_user_by_name(userinfo.username,function(data){
+		// 	if (data && data.password == userinfo.password) {
+		// 		$rootScope.currentUser = data;
+		// 		$location.path('/home');
+		// 	}else{
+		// 		$scope.loginM = "Invalid uername or password";
+		// 	}
+		// 	$scope.login_databack = data;
+		// });
 	}
 	$scope.logout = function(){
 		$location.path('/');

@@ -5,7 +5,9 @@ var express = require('express')
 , FacebookStrategy = require('passport-facebook').Strategy
 , session = require('express-session')
 , bodyParser = require('body-parser')
-, cookieParser = require('cookie-parser');
+, cookieParser = require('cookie-parser')
+,firebase = require("firebase");
+
 var app = express();
 
 //open folder public for front-end 

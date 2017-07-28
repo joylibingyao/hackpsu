@@ -11,7 +11,6 @@ appointments.config(function($routeProvider){
 	.when('/mypage',{ templateUrl: 'partials/mypage.html' })
 	.when('/create_class',{ templateUrl: 'partials/createClass.html' })
 	.when('/classPage/:id',{templateUrl:'partials/classPage.html'})
-	.when('/mypage/sellinghistory',{ templateUrl: 'partials/sellinghistory.html' })
 	.otherwise( { redirectTo: "/" });
 });
 // var checkLoggedin = function($q, $location, $rootScope, $http) {

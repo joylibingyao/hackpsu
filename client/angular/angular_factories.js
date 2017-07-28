@@ -11,6 +11,11 @@ appointments.factory('ProfileFactory', function($http){
 			callback(output);
 		})
 	};
+	factory.login =function(userinfo,callback){
+		$http.post('/login',userinfo).success(function(output){
+			callback(output);
+		})
+	}
 	factory.get_user_by_name = function(username, callback) {
 		$http.get('/get_user_by_name/'+username).success(function(output){
 			var user = output;
