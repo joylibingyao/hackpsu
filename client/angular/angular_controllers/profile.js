@@ -44,7 +44,7 @@ appointments.controller('ProfileController', function($rootScope,$rootScope,$sco
 		ProfileFactory.create_class($scope.nclass,function(data){
 			console.log("yeah ",data);
 			$rootScope.currentClass = data;
-			$location.path('/classPage/'+data._id);
+			$location.path('/classPage/'+data.cname);
 		});
 	}
 	$scope.upload_link = function(){
