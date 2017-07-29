@@ -4,6 +4,7 @@
 // var nClass = mongoose.model('Class');
 // var Link = mongoose.model('Link');
 var firebase = require("firebase");
+const dbRef= firebase.database().ref()
 
 module.exports = (function() {
 	return{
@@ -13,24 +14,6 @@ module.exports = (function() {
 			var email = req.body.email;
 			var password = req.body.password;
 			var name = req.body.username;
-
-			// User.findOne({ username:req.body.username }, function(err,user){
-			// 	if(user) {
-			// 		res.status(401).json({error:'username exists'});
-			// 		console.log('route-reg2',user);
-			// 	}//ends if
-			// 	else {
-			// 		console.log("user name not found create new");
-			// 		var newUser = User(req.body);
-			// 		newUser.save(function(err,data){
-			// 			if(err) {
-			// 				console.log('Error');
-			// 			} else {
-			// 				res.json(data);
-			// 			}
-			// 		});
-			// 	}//ends else
-			// } );//ends UserModel.findOne 
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 			  // Handle Errors here.
 			  var errorCode = error.code;
@@ -46,7 +29,7 @@ module.exports = (function() {
 			  // ...
 			});
 			firebase.auth().onAuthStateChanged(function(currentUser) {
-			  	console.log("gg  ",currentUser);
+			  	// console.log("gg  ",currentUser);
 				  if (currentUser) {
 				    currentUser.updateProfile({
 					  displayName: name
@@ -55,7 +38,7 @@ module.exports = (function() {
 			});
 		},
 		user_login:function(req,res){
-			console.log("req ",req.body);
+			// console.log("req ",req.body);
 			var email = req.body.email;
 			var password = req.body.password;
 			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -66,7 +49,7 @@ module.exports = (function() {
 			  // ...
 			});
 			firebase.auth().onAuthStateChanged(function(currentUser) {
-			  	console.log("gg  ",currentUser);
+			  	// console.log("gg  ",currentUser);
 				  if (currentUser) {
 				    res.json(currentUser);
 				  } else {
@@ -76,11 +59,53 @@ module.exports = (function() {
 		},
 		create_class:function(req,res){
 			const classRef= firebase.database().ref().child("classes");
-			var newClass = classRef.push().then(function(){
-				classRef.on('child_added', function(snap) {
-    			console.log(snap.getKey(), snap.val());
-  				});
+			var newClass = classRef.push();
+			var key = newClass.key
+			var newClassInfo={
+				id:key,
+				cname:req.body.cname,
+				linkCount:0
+			}
+			newClass.set(newClassInfo);
+			console.log("create classes succ");
+			res.json(req.body.cname);
+
+		},
+		get_all_classes:function(req,res){
+			dbRef.on("value", function(snapshot) {
+			    console.log("snap val+ ",snapshot.val());
+			    snapshot.forEach(function (childSnapshot) {
+		            var value = childSnapshot.val();
+		            res.json(value)
+		        });
 			});
+		},
+		get_class_by_name:function(req,res){
+			dbRef.child('classes').orderByChild('cname').equalTo(req.body.cname).on("value", function(snapshot) {
+			    console.log("snap val+ ",snapshot.val());
+			    snapshot.forEach(function (childSnapshot) {
+		            var value = childSnapshot.val();
+		            res.json(value)
+		        });
+			});
+		},
+		upload_link:function(req,res){
+			console.log("req.body info yo :",req.body);
+			const linkRef= dbRef.child("links");
+			var nlink = linkRef.push();
+			var key = nlink.key
+			var nLinkInfo={
+				id:key,
+				url:req.body.url,
+				message:req.body.message,
+				cname:req.body.cname,
+				_class:req.body._class,
+				username:req.body.username,
+				_user:req.body._user,
+			}
+			nlink.set(nLinkInfo);
+			console.log("create link succ");
+			// res.json(req.body.cname);
 		}
 	// 	upload_link:function(req,res){
 	// 		User.findOne({_id:req.body._user},function(err,user){

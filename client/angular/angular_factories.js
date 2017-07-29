@@ -52,6 +52,12 @@ appointments.factory('ProfileFactory', function($http){
 			callback(output);
 		})
 	};
+	factory.get_class_by_name = function(cname, callback) {
+		console.log("userinfo ",cname);
+		$http.post('/get_class_by_name', cname).success(function(output){
+			callback(output);
+		})
+	};
 
 	return factory;
 });
