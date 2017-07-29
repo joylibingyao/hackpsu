@@ -76,39 +76,37 @@ module.exports = (function() {
 		},
 		create_class:function(req,res){
 			const classRef= firebase.database().ref().child("classes");
-			var newClass = classRef.push().then(function(){
-				classRef.on('child_added', function(snap) {
-    			console.log(snap.getKey(), snap.val());
-  				});
-			});
-		}
-	// 	upload_link:function(req,res){
-	// 		User.findOne({_id:req.body._user},function(err,user){
-	// 			if (user) {
-	// 				nClass.findOne({_id:req.body._class},function(err,course){
-	// 					if (course) {
-	// 						nlinkInfo = req.body;
-	// 						var newLink = Link(nlinkInfo);
-	// 						course.links.push(newLink);
-	// 						course.save(function(err,result){
-	// 							newLink.save(function(err,data){
-	// 								if (err) {
-	// 									console.log("Failed on Uploading Link | Save on new link");
-	// 								}else{
-	// 									res.json(data);
-	// 									console.log("Link uploaded successfullly");
-	// 								}
-	// 							})
-	// 						})
-	// 					}else{
-	// 						console.log("Failed on Uploading Link | class not found");
-	// 					}
-	// 				})
-	// 			}else{
-	// 				console.log("Failed on Uploading Link | user not found");
-	// 			}
-	// 		});
-	// 	},
+			var newClass = classRef.push().set(req.body);
+			res.json(req.body);
+		},
+
+	 	upload_link:function(req,res){
+	 		User.findOne({_id:req.body._user},function(err,user){
+	 			if (user) {
+	 				nClass.findOne({_id:req.body._class},function(err,course){
+	 					if (course) {
+	 						nlinkInfo = req.body;
+	 						var newLink = Link(nlinkInfo);
+	 						course.links.push(newLink);
+	 						course.save(function(err,result){
+	 							newLink.save(function(err,data){
+	 								if (err) {
+	 									console.log("Failed on Uploading Link | Save on new link");
+	 								}else{
+	 									res.json(data);
+	 									console.log("Link uploaded successfullly");
+	 								}
+	 							})
+	 						})
+	 					}else{
+	 						console.log("Failed on Uploading Link | class not found");
+	 					}
+	 				})
+	 			}else{
+	 				console.log("Failed on Uploading Link | user not found");
+	 			}
+	 		});
+	 	}
 	// 	get_user_by_name:function(req,res){
 	// 		User.findOne({ username : req.params.username }, function(err, results){
 	// 			if(err){
