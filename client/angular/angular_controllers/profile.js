@@ -1,9 +1,9 @@
 // Profile controller
-appointments.controller('ProfileController', function($rootScope,$rootScope,$scope, $http, $routeParams, $location, ProfileFactory){
+appointments.controller('ProfileController', function($rootScope,$scope, $http, $routeParams, $location, ProfileFactory){
 	$scope.allClasses=[]
 	// $rootScope.currentUser={
 	// 	"email":"123@123.com",
-	// 	"username":"123",
+	// 	"displayName":"123",
 	// 	"uid":"zy3VESBnikhVxS0YsVCqy9y0gUr1"
 	// }
 	// $rootScope.currentClass = "CMPSC473"
@@ -41,43 +41,6 @@ appointments.controller('ProfileController', function($rootScope,$rootScope,$sco
 		// 	$scope.login_databack = data;
 		// });
 	}
-	$scope.logout = function(){
-		$location.path('/');
-		$rootScope.currentUser = "";
-	}
-	$scope.create_class= function(){
-		ProfileFactory.create_class($scope.nclass,function(cname){
-			console.log("yeah ",cname);
-			$rootScope.currentClass = cname;
-			$location.path('/classPage/'+cname);
-
-		});
-	}
-	$scope.upload_link = function(){
-		var classinfo = {
-			cname:$rootScope.currentClass
-		}
-		ProfileFactory.get_class_by_name(classinfo,function(data){
-			$rootScope.currentClass = data;
-			console.log("got name currentClass : ",$rootScope.currentClass);
-			$scope.link.username= $rootScope.currentUser.displayName;
-			$scope.link._user= $rootScope.currentUser.uid;
-			$scope.link.cname=$rootScope.currentClass.cname;
-			$scope.link._class=$rootScope.currentClass.id;
-			ProfileFactory.upload_link($scope.link,function(data){
-				console.log("link added");
-			})
-		})
-		// console.log("currentclass iunfo ",$rootScope.currentClass);	
-	}
-	// $scope.get_class_detail = function(tclass){
-	// 	console.log('tclass ',tclass);
-	// 	$location.path('/classPage/'+tclass._id);
-	// 	ProfileFactory.get_all_links_by_class(tclass._id,function(data){
-	// 		$rootScope.currentClass = data;
-	// 		console.log("currentClass : ",$rootScope.currentClass);
-	// 	})
-	// }
 });
 
 

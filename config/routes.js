@@ -12,19 +12,19 @@ var users = require('./../server/controllers/UserServerController.js');
       console.log("add class in route");
       users.create_class(req, res);
     });
-   app.post('/get_class_by_name', function(req, res) {
-      // console.log("add class in route");
+   app.get('/get_class_by_name/:cname', function(req, res) {
+      console.log("get class in route");
       users.get_class_by_name(req, res);
     });
     app.post('/upload_link', function(req, res) {
       users.upload_link(req, res);
     });
-    // app.get('/get_all_classes',function(req, res) {
-    //   users.get_all_classes(req, res);
-    // });
-    // app.get('/get_all_links_by_class/:cid', function(req, res) {
-    //   users.get_all_links_by_class(req, res);
-    // });
+    app.get('/get_all_classes',function(req, res) {
+      users.get_all_classes(req, res);
+    });
+    app.get('/get_all_links_by_class/:cid', function(req, res) {
+      users.get_all_links_by_class(req, res);
+    });
 
 
 

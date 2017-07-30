@@ -41,22 +41,20 @@ appointments.factory('ProfileFactory', function($http){
 	// <----------------| END || POSTS |------------------------->
 
 	factory.create_class = function(nclassInfo, callback) {
-		console.log("userinfo ",nclassInfo);
 		$http.post('/create_class', nclassInfo).success(function(output){
 			callback(output);
 		})
 	};
 	factory.upload_link = function(nlinkInfo, callback) {
-		console.log("userinfo ",nlinkInfo);
+		// console.log("userinfo ",nlinkInfo);
 		$http.post('/upload_link', nlinkInfo).success(function(output){
 			callback(output);
 		})
 	};
 	factory.get_class_by_name = function(cname, callback) {
-		console.log("userinfo ",cname);
-		$http.post('/get_class_by_name', cname).success(function(output){
+		$http.get('/get_class_by_name/'+cname).success(function(output){
 			callback(output);
-		})
+		});
 	};
 
 	return factory;
