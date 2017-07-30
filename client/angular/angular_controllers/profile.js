@@ -50,6 +50,7 @@ appointments.controller('ProfileController', function($rootScope,$rootScope,$sco
 			console.log("yeah ",cname);
 			$rootScope.currentClass = cname;
 			$location.path('/classPage/'+cname);
+
 		});
 	}
 	$scope.upload_link = function(){
