@@ -15,7 +15,7 @@
 appointments.config(function($routeProvider){
 
 	$routeProvider
-	.when('/',{ templateUrl: 'partials/login.html' })
+	.when('/',{ templateUrl: 'partials/header.html' })
 	.when('/login',{ templateUrl: 'partials/login.html' })
 	.when('/register',{ templateUrl: 'partials/register.html' })
 	.when('/home',{ templateUrl: 'partials/home.html' })

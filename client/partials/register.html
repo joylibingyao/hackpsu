@@ -1,43 +1,74 @@
 <style type="text/css">
-	body{
-		background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
-		rgba(0,0,0,0.50) url('../img/raw-food.jpg') no-repeat center;
-		background-size: cover;
-		/*background-image: url("../img/bk.jpg");*/
-		/*opacity: 0.8;*/
-	}
-	#selectS{
-		display: block;
-	}
-	
+  .login form {
+    height: 420px;
+  }
+  html {
+    background: #000;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  @keyframes form-entry {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    padding: 0;
+  }
+  20% {
+    height: 0;
+    border: 1px solid #e0e0e0;
+    width: 0;
+    opacity: 0;
+    padding: 0;
+  }
+  40% {
+    width: 0;
+    height: 420px;
+    border: 6px solid #e0e0e0;
+    opacity: 1;
+    padding: 0;
+  }
+  100% {
+    height: 420px;
+    width: 500px;
+  }
+}
 </style>
-<div ng-controller="ProfileController" class="container">
-
-	<h3 class="center" id="regText">Register</h3>
-
-	<div class='row white-text'>
-
-		<div class="input-field col s6">
-			<i class="material-icons prefix">account_circle</i>
-			<input class="white-text" placeholder="username" id='uname' type="text" ng-model="new_friend.username">
-		</div>
-
-		<div class="input-field col s6">
-			<i class="material-icons prefix">email</i>
-			<input class="white-text validate" placeholder="email" id='unemail' type="email" ng-model="new_friend.email">
-		</div>
-		<div class="input-field col s6">
-			<i class="material-icons prefix">lock</i>
-			<input class="white-text" placeholder="password" id='upass1' type="password" ng-model="new_friend.password">
-		</div>
-		<div class="input-field col s6">
-			<i class="material-icons prefix">lock</i>
-			<input class="white-text" placeholder="confirm password" id='upass2' type="password" ng-model="new_friend.password2">
-		</div>
-		<div class="input-field col s6">
-			<button onclick="Materialize.toast('Welcome New Friend', 4000)" ng-click="register()" class="btn waves-effect waves-light green" type="submit" name="action">Register
-				<i class="material-icons left">send</i>
-			</button>
-		</div>
-	</div>
-</div>		
+  	<div id="logo"> 
+  		<h1><i>	REGISTER </i></h1>
+	</div> 
+	<section class="login">
+  		<div ng-controller="ProfileController" class="container">
+  			<form>
+    			<div id="fade-box">
+					<div class="input-field col s6">
+						<input class="white-text" placeholder="username" id='uname' type="text" ng-model="new_friend.username">
+					</div>
+				<div class="input-field col s6">
+					<input class="white-text validate" placeholder="email" id='unemail' type="email" ng-model="new_friend.email">
+				</div>
+				<div class="input-field col s6">
+					<input class="white-text" placeholder="password" id='upass1' type="password" ng-model="new_friend.password">
+				</div>
+				<div class="input-field col s6">
+					<input class="white-text" placeholder="confirm password" id='upass2' type="password" ng-model="new_friend.password2">
+				</div>
+				<div class="input-field col s6">
+					<button onclick="Materialize.toast('Welcome New Friend', 4000)" ng-click="register()" class="btn waves-effect waves-light green" type="submit" name="action">Register
+					</button>
+				</div>
+   			</form>
+   		</div>
+   	</section>
+    <div class="halo ring-1"></div>
+    <div class="halo ring-2"></div>
+    <div class="halo ring-3"></div>
+    <div class="halo ring-4"></div>
+    <div class="halo ring-5"></div>
+    <div class="halo ring-6"></div>
+    <div class="halo ring-7"></div>
+    <div class="halo ring-8"></div>
+  	<br><br><br><br><br><br><br><br>
