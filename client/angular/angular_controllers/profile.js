@@ -16,7 +16,6 @@ appointments.controller('ProfileController', function($rootScope,$scope, $http, 
 	$scope.register = function () {
 		var userinfo =$scope.new_friend;
 		// userinfo.card = $scope.card;
-		console.log("exdate ",$scope.new_friend.exp_date);
 		ProfileFactory.user_register(userinfo,function(data){
 			$scope.all_users = allusers;
 				$scope.new_friend = "";
@@ -27,6 +26,7 @@ appointments.controller('ProfileController', function($rootScope,$scope, $http, 
 		var userinfo =$scope.old_friend;
 		ProfileFactory.login(userinfo,function(data){
 			if (data) {
+				console.log("log in success");
 				$rootScope.currentUser = data;
 				$location.path('/home');
 			}

@@ -17,6 +17,7 @@ appointments.controller('ClassPageController', function($rootScope,$scope, $http
 				console.log("link added");
 				ProfileFactory.get_all_links_by_class($rootScope.currentClass.id,function(links){
 					$rootScope.currentClass.links = links;
+					$scope.link="";
 					console.log("all links",links);
 				});
 			});
