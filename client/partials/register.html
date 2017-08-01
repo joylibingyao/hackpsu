@@ -44,22 +44,23 @@
   		<div ng-controller="ProfileController" class="container">
   			<form>
     			<div id="fade-box">
-					<div class="input-field col s6">
-						<input class="white-text" placeholder="username" id='uname' type="text" ng-model="new_friend.username">
-					</div>
-				<div class="input-field col s6">
-					<input class="white-text validate" placeholder="email" id='unemail' type="email" ng-model="new_friend.email">
-				</div>
-				<div class="input-field col s6">
-					<input class="white-text" placeholder="password" id='upass1' type="password" ng-model="new_friend.password">
-				</div>
-				<div class="input-field col s6">
-					<input class="white-text" placeholder="confirm password" id='upass2' type="password" ng-model="new_friend.password2">
-				</div>
-				<div class="input-field col s6">
-					<button onclick="Materialize.toast('Welcome New Friend', 4000)" ng-click="register()" class="btn waves-effect waves-light green" type="submit" name="action">Register
-					</button>
-				</div>
+					  <div class="input-field col s6">
+						  <input class="white-text" placeholder="username" id='uname' type="text" ng-model="new_friend.username">
+					  </div>
+				    <div class="input-field col s6">
+					    <input class="white-text validate" placeholder="email" id='unemail' type="email" ng-model="new_friend.email">
+				    </div>
+				    <div class="input-field col s6">
+					    <input class="white-text" placeholder="password" id='upass1' type="password" ng-model="new_friend.password">
+				    </div>
+				    <div class="input-field col s6">
+					    <input class="white-text" placeholder="confirm password" id='upass2' type="password" ng-model="new_friend.password2">
+				    </div>
+				    <div class="input-field col s6">
+					    <button onclick="Materialize.toast('Welcome New Friend', 4000)" ng-click="register()" class="btn waves-effect waves-light green" type="submit" name="action">Register
+					    </button>
+				    </div>
+          </div>
    			</form>
    		</div>
    	</section>
