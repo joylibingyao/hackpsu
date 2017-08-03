@@ -1,17 +1,21 @@
 <style type="text/css">
 	body{
-		background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),
-		rgba(0,0,0,0.50) url('../img/salad.jpg') no-repeat center;
-		background-size: cover;
-		/*background-image: url("../img/bk.jpg");*/
-		/*opacity: 0.8;*/
+		background-image: url("../img/timg.jpg");
+		background-size: 100%;
 	}
 </style>
 <div class="row" ng-controller="HomeController" class="container">
+	<div class="col s3">
+		<div class="card blue lighten-4">
+			<div class="card-action">
+				<h5>Course List</h5>
+			</div>
+		</div>
+	</div>
 	<div class="col s9">
 		<div class="input-field col s12" id="search">
 			<i class="material-icons prefix">search</i>
-			<input id="search" type="text" class="form-control white-text" placeholder='Search here' ng-model="filter_class">
+			<input id="search" type="text" class="form-control white-text" placeholder='Search here' ng-model="filter_product">
 		</div>
 		<div class="col s9">
 			<button ng-repeat = " cate in gCates "  ng-click="selectCate(cate.category)" class="btn">
@@ -19,16 +23,13 @@
 			</button>
 			<button class="btn" ng-click="selectCate(0)">All</button>
 		</div>
-		<div class="col s12 m6 l3" ng-repeat="tclass in allClasses|  toArray | filter:  filter_class">
-			<div class="card" ng-click="get_class_detail(tclass)">
-				<div class="card-image">
-					<img src="../img/bk.jpg" class="">
-				</div>
-				<h3>Class</h3>
-				<div class="card-content">
-					<span class="card-title" ng-bind="tclass.cname"></span>
-				</div>
+		<br><br><br><br><br><br>
+		<div class="col s12 m6 l3" ng-repeat="tclass in allClasses">
+			<div class="card-panel blue lighten-5" ng-click="get_class_detail(tclass)">
+				<i class="material-icons">pool</i>
+				<span class="card-title" ng-bind="tclass.cname"></span>
 			</div>
 		</div>
 	</div>
 </div>
+<br><br><br><br><br><br>
