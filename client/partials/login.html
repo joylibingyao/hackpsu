@@ -19,11 +19,17 @@
   		<div id="login" ng-controller="ProfileController">
   			<form>	
     			<div id="fade-box">
+            <div class="input-field col s6">
       				<input type="text" id="uname" ng-model = "old_friend.email" placeholder="email" required>
-      				<input type="password" id='upass1' ng-model="old_friend.password" placeholder="password" required>
+            </div>
+      			<div class="input-field col s6">
+            	<input type="password" id='upass1' ng-model="old_friend.password" placeholder="password" required>
+            </div>
+            <div class="input-field col s6">
       				<button onclick="Materialize.toast('Welcome Local User', 4000)" ng-click="login()" class="btn waves-effect waves-light" type="submit" name="action">Login
-      				</button> 
-      				{{loginM}}
+      				</button>
+              {{loginM}}
+            </div>
     			</div>
    			</form>
    		</div>
@@ -36,4 +42,6 @@
     <div class="halo ring-6"></div>
     <div class="halo ring-7"></div>
     <div class="halo ring-8"></div>
-  	<br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
