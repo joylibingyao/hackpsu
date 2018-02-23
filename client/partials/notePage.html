@@ -1,0 +1,114 @@
+<style type="text/css">
+  html {
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  video{
+    margin: 7px;
+  }
+</style>
+
+<section class="login">
+  <div class="row" id="classPage" ng-controller="ClassPageController" class="container">
+    <div class="col s9">
+      <div class="card">
+        <div id="show_notes">
+          <object width="800" height="650" type="application/pdf" data="../video/pdf.pdf" id="pdf_content" style="pointer-events: none;">
+          <p>Please upgrade your browser to the latest version to watch the video.</p>
+          </object>
+        </div>
+      </div>
+      <div id="show_comments">
+        <div class="card">
+          <div class="ccomment">
+            <div class="card-content">
+              <div class="input-field">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Questions?</label>
+              </div>
+              <div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                <a class="waves-effect waves-teal btn-flat">Cancel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ccomment">
+            <div class="card-content">
+              <ul class="collection">
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">android</i>
+                  <span class="title">Name1</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">adb</i>
+                  <span class="title">Name2</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle green">assignment_ind</i>
+                  <span class="title">Name3</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">accessibility</i>
+                  <span class="title">Name4</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s3">
+      <div class="card">
+        <div class="cmore">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width tabs-transparent">
+              <li class="tab"><a class="active" href="#notes">Notes</a></li>
+              <li class="tab"><a href="#videos">More Videos</a></li>
+            </ul>
+          </div>
+          <div class="cmore">
+            <div class="card-content">
+              <div id="notes">Test 1</div>
+              <div id="videos">
+                <div class="card">
+                  <div class="cback">   
+                    <div class="card-image">
+                      <img src="../img/flash.png">
+                    </div>
+                    <div class="card-content">
+                      <p>flash</p>
+                    </div>
+                  </div>
+                </div>                
+                <div class="card">
+                  <div class="cback">   
+                    <div class="card-image">
+                      <img src="../img/flash.png">
+                    </div>
+                    <div class="card-content">
+                      <p>flash</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

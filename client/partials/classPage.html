@@ -1,105 +1,115 @@
 <style type="text/css">
-  .login form {
-    height: 280px;
-  }
   html {
-    background: #000;
     background-size: cover;
     height: 100%;
     position: absolute;
     text-align: center;
     width: 100%;
   }
-  #logo{
-  	width: 550px;
-  }
-
-  @keyframes form-entry {
-  0% {
-    height: 0;
-    width: 0;
-    opacity: 0;
-    padding: 0;
-  }
-  20% {
-    height: 0;
-    border: 1px solid #e0e0e0;
-    width: 0;
-    opacity: 0;
-    padding: 0;
-  }
-  40% {
-    width: 0;
-    height: 280px;
-    border: 6px solid #e0e0e0;
-    opacity: 1;
-    padding: 0;
-  }
-  100% {
-    height: 280px;
-    width: 500px;
+  video{
+    margin: 7px;
   }
 </style>
-  <div id="logo"> 
-  		<h1><i>	ADD RESOURCES </i></h1>
-	</div> 
-  <div class="fixed-action-btn">
-    <a class="btn-floating btn-large waves-effect waves-light green">
-      <i class="material-icons">add</i></a>
-    </a>
-    <!--ul>
-      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul-->
-  </div>
-	<section class="login">
-  		<div id="classPage" ng-controller='ClassPageController' class="container white-text">
-  			<form>
-  				<div id="fade-box">
-					  <div class="input-field col s6">
-						  <input class="white-text" placeholder="link" id='uname' type="text" ng-model="link.url">
-					  </div>
-					  <div class="input-field col s6">
-						  <input class="white-text validate" placeholder="message" id='unemail' type="text" ng-model="link.message">
-					  </div>
-					  <div class="input-field col s2">
-						  <button ng-click="upload_link()" class="btn waves-effect waves-light green" type="submit" name="action">Upload
-						  </button>
-					  </div>
-				</div>
-			</form>
-			<br><br>
-			<div id="show_rescourses">
-				<table>
-					<thead>
-						<tr>
-							<td>url</td>
-							<td>message</td>
-							<td>author</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="white-text" ng-repeat='link in currentClass.links'>
-							<td><a ng-bind='link.url'></a></td>
-							<td ng-bind='link.message'></td>
-							<td ng-bind='link.username'></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-   	</section>
-    <div class="halo ring-1"></div>
-    <div class="halo ring-2"></div>
-    <div class="halo ring-3"></div>
-    <div class="halo ring-4"></div>
-    <div class="halo ring-5"></div>
-    <div class="halo ring-6"></div>
-    <div class="halo ring-7"></div>
-    <div class="halo ring-8"></div>
 
-    <br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br>
+<section class="login">
+  <div class="row" id="classPage" ng-controller="ClassPageController" class="container">
+    <div class="col s9">
+      <div class="card">
+        <div id="show_videos" class="cvideo">
+          <video width="854" height="480" controls controlsList="nodownload" poster="../img/flash.png">
+            <source src="../video/paint.mp4" type="video/mp4">
+            Please upgrade your browser to the latest version to watch the video.
+          </video>
+        </div>
+      </div>
+      <div id="show_comments">
+        <div class="card">
+          <div class="ccomment">
+            <div class="card-content">
+              <div class="input-field">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Questions?</label>
+              </div>
+              <div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                <a class="waves-effect waves-teal btn-flat">Cancel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ccomment">
+            <div class="card-content">
+              <ul class="collection">
+                <li class="collection-item avatar">
+                  <i class="material-icons circle blue">android</i>
+                  <span class="title">Name1</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle pink">adb</i>
+                  <span class="title">Name2</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle green">assignment_ind</i>
+                  <span class="title">Name3</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">accessibility</i>
+                  <span class="title">Name4</span>
+                  <p>biubiubiu</p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s3">
+      <div class="card">
+        <div class="cmore">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width tabs-transparent">
+              <li class="tab"><a class="active" href="#notes">Notes</a></li>
+              <li class="tab"><a href="#videos">More Videos</a></li>
+            </ul>
+          </div>
+          <div class="cmore">
+            <div class="card-content">
+              <div id="notes">Test 1</div>
+              <div id="videos">
+                <div class="card">
+                  <div class="cback">   
+                    <div class="card-image">
+                      <img src="../img/flash.png">
+                    </div>
+                    <div class="card-content">
+                      <p>flash</p>
+                    </div>
+                  </div>
+                </div>                
+                <div class="card">
+                  <div class="cback">   
+                    <div class="card-image">
+                      <img src="../img/flash.png">
+                    </div>
+                    <div class="card-content">
+                      <p>flash</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
