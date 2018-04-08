@@ -1,4 +1,4 @@
- var appointments = angular.module('appointments',['ngRoute']).filter("toArray", function() {
+ var appointments = angular.module('appointments',['angularPayments','ngRoute']).filter("toArray", function() {
         return function(input) {
             if(!input) return;
 
@@ -11,8 +11,9 @@
             });
         };
     });;
-
 appointments.config(function($routeProvider){
+
+  // $window.Stripe.setPublishableKey('pk_test_PUgDq8XdrH18XX0RQV2dfnHR');
 
 	$routeProvider
 	.when('/',{ templateUrl: 'partials/header.html' })
@@ -24,21 +25,3 @@ appointments.config(function($routeProvider){
 	.when('/classPage/:id',{templateUrl:'partials/classPage.html'})
 	.otherwise( { redirectTo: "/" });
 });
-// var checkLoggedin = function($q, $location, $rootScope, $http) {
-// 	var deferred = $q.defer();
-// 	$http.get('/loggedin').success(function(user){
-// 		console.log('checkLoggedin',user);
-// 		if (user) {
-// 			console.log('yes loggedin',user);
-// 			$rootScope.users = user;
-// 			$rootScope.currentUser = user; //$rootScope.currentUser is used ng-show- see index nav
-// 			deferred.resolve();
-// 			$location.url('/home');
-// 		}//ends if
-// 		else {
-// 			console.log('no loggedin');
-// 			deferred.reject();
-// 			$location.url('/login');
-// 		}
-// 	})
-// };

@@ -12,12 +12,16 @@
 
 
 	<!-- Angular -->
-	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js""></script>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-route.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-resource.min.js"></script>
 
 	<!-- Payment -->
-	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript" src="angular/angular-payments.js"></script>
+
+
 
 	<script type="text/javascript" src="angular/app.js"> </script>
 	<script type="text/javascript" src="angular/angular_factories.js"> </script>
@@ -29,43 +33,31 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </script>
-<!--style type="text/css">
-	#logo{
-		width: 60;
-		height: 60;
-	}
-</style-->
+
 </head>
 <body ng-app="appointments">
 	<nav class="N/A transparent" id="navbar">
-		<!--a href="#/home" class="brand-logo"><img src="./img/logo.png" id="logo"></a-->
 		<ul class="right hide-on-med-and-down" ng-controller="ProfileController">
 			<span ng-show="!currentUser">
 				<li><a href="#/register">Register</a></li>
 				<li><a href="#/login">Login</a></li>
 			</span>
 			<span ng-show="currentUser" >
-				<li><a  class="black" href="#/home">Home</a></li> 
-				<li><a  class="black" href="#/create_class">Create Class</a></li> 
-				<li><a  class="black" href="#/mypage">Me</a></li> 
+				<li><a  class="black" href="#/home">Home</a></li>
+				<li><a  class="black" href="#/create_class">Create Class</a></li>
+				<li><a  class="black" href="#/mypage">Me</a></li>
 				<li><a class="black" href="#/logout" ng-click="logout()" >logout</a></li>
 			</span>
 		</ul>
 	</nav>
 	<div ng-view="">
 	</div>
-	<!-- <div>
-    	<canvas id="canvas">
-        	<script src="js/header.js"> </script>
-    	</canvas>
-	</div> -->
 	<div class="footer-copyright">
-            <div class="container">
-            © 2017 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-
-            </div>
-          </div>
+    <div class="container">
+    2017 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>

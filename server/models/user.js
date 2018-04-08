@@ -6,8 +6,7 @@ var UserSchema = new mongoose.Schema({
 	account: {type: String,default:"⛄️"},//email
 	password: String,
 
-	created_at: {type: Date, default: Date.now },
-
+	created_at: {type: Date, default: Date.now }
 
 });
 mongoose.model('User', UserSchema);

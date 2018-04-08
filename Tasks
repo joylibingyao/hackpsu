@@ -1,14 +1,33 @@
-Class page: 
-	hyper link--Joy
-	like--Joy
-	comments-Joy
+Database structure
+classes:
+	videos:{
+		title,
+		description,
+		class,
+		user,
+		date,
+		comments,
+		view counts,
+		likes
+	}
+	notes:{
+		title,
+		description,
+		class,
+		user,
+		date,
+		comments,
+		view counts,
+		likes
+	}
 
-My page:
-	upload link
-	saved link
-	followed class
+Joy:
 
-Home page:
-	ui
-	what do you want on the website
+payment:
+	token done;
+	charge:need
+tab video
 
+Huahua:
+database
+upload, delete & view notes&&videos

@@ -2,6 +2,7 @@
 	body{
 		background-image: url("../img/timg.jpg");
 		background-size: 100%;
+		text: white;
 	}
 </style>
 <div class="row" ng-controller="HomeController" class="container">
@@ -12,7 +13,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="col s9">
+	<div class="col s9 white-text">
+		<div class="row">
+			<form stripe-form="stripeCallback">
+    		<input ng-model="number" placeholder="Card Number" />
+    		<input ng-model="expiry" placeholder="Expiration" />
+    		<input ng-model="cvc" placeholder="CVC" />
+				<input ng-model="amout" placeholder="Amount" />
+    		<button type="submit">Submit</button>
+			</form>
+		</div>
 		<div class="input-field col s12" id="search">
 			<i class="material-icons prefix">search</i>
 			<input id="search" type="text" class="form-control white-text" placeholder='Search here' ng-model="filter_product">

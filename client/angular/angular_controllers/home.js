@@ -3,8 +3,9 @@
 //       createClass.html
 
 
-appointments.controller('HomeController', function($rootScope,$scope, $http, $routeParams, $location, ProfileFactory){
-	// 
+appointments.controller('HomeController', function( $window,$rootScope,$scope, $http, $routeParams, $location, ProfileFactory){
+	//
+	$window.Stripe.setPublishableKey('pk_test_PUgDq8XdrH18XX0RQV2dfnHR');
 
 // 	$scope.allClasses = get_all_classes();
 // 	console.log("all  ",$scope.allClasses);
@@ -27,9 +28,31 @@ appointments.controller('HomeController', function($rootScope,$scope, $http, $ro
 		$location.path('/classPage/'+tclass.cname);
 		$rootScope.currentClass = tclass.cname;
 	}
+	$scope.stripeCallback = function (code, result) {
+		console.log('in call back');
+    if (result.error) {
+        window.alert('it failed! error: ' + result.error.message);
+    } else {
+        window.alert('success! token: ' + result.id);
+				var chargeInfo = {
+					token:result
+				}
+				var token = result.id;
+				$window.Stripe.charges.create({
+	  			amount: 1,
+	  			currency: "usd",
+	  			description: "Example charge",
+	  			source: token,
+				}, function(err, charge) {
+	  			// asynchronously called
+					if (error) {
+						console.log(err);
+					}else{
+						console.log(charge);
+					}
+				});
+				ProfileFactory.charge(chargeInfo);
+    }
+};
 
 });
-
-
-
-

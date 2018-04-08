@@ -119,12 +119,33 @@ module.exports = (function() {
 			dbRef.child("classes").orderByKey().once("value",function(snapshot){
 				res.json(snapshot.val());
 			});
+		},
+
+  ////------------- PAYMENT ---------- ///////
+		charge:function(req,res){
+			console.log(req.body);
+			var token = req.body.token.id; // Using Express
+			var amount = 1;
+// Charge the user's card:
+			Stripe.charges.create({
+  			amount: amount,
+  			currency: "usd",
+  			description: "Example charge",
+  			source: token,
+			}, function(err, charge) {
+  			// asynchronously called
+				if (error) {
+					console.log(err);
+				}else{
+					console.log(charge);
+				}
+			});
 		}
 	// 	get_user_by_name:function(req,res){
 	// 		User.findOne({ username : req.params.username }, function(err, results){
 	// 			if(err){
 	// 				res.send(err);
-	// 			} 
+	// 			}
 	// 			else {
 	// 				res.json(results);
 	// 			}

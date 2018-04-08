@@ -56,6 +56,14 @@ appointments.factory('ProfileFactory', function($http){
 			callback(output);
 		});
 	};
+	// <----------------| BEGIN || PAYMENT |------------------------->
+	factory.charge = function (chargeInfo) {
+		console.log("print chargeInfo"+chargeInfo.amount);
+		$http.post('/charge',chargeInfo).success(function(output){
+			callback(output);
+		});
+	}
+	// <----------------| END || PAYMENT |------------------------->
 
 	return factory;
 });
@@ -131,5 +139,6 @@ appointments.factory('OrderFactory', function($http){
 		});
 	};
 	// <----------------| END || POSTS |------------------------->
+
 	return factory;
 });

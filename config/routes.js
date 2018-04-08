@@ -26,6 +26,10 @@ var users = require('./../server/controllers/UserServerController.js');
       users.get_all_links_by_class(req, res);
     });
 
+    app.post('/charge', function(req, res) {
+      console.log("charge in route");
+      users.charge(req, res);
+    });
 
 
 
